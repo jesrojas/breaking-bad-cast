@@ -6,6 +6,16 @@ import './App.css';
 
 import axios from 'axios'
 
+export interface Characters {
+  char_id: number,
+  img: string,
+  name: string,
+  portrayed: string,
+  nickname: string,
+  birthday: string,
+  status: string
+}
+
 const  App = () => {
   const [items, setItems] = useState([])
   const [isLoading, setLoading] = useState(true)
@@ -25,10 +35,14 @@ const  App = () => {
     fetchItems()
   }, [query])
 
+  const onSearchEvent = (e : any) => {
+    setQuery(e.currentTarget.value)
+  }
+
   return (
     <div className="container">
       <Header/>
-      <SearchBox setQuery={(q) => setQuery(q)}/>
+      <SearchBox searchEvent={onSearchEvent}/>
       <CharactersGrid isLoading={isLoading} items={items}/>
     </div>
   );

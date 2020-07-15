@@ -1,6 +1,11 @@
 import React from 'react'
+import { Characters } from '../../App'
 
-const CharacterItem = ({ item }) => {
+interface StatelessComponentProps {
+    item: Characters
+}
+
+const CharacterItem : React.SFC<StatelessComponentProps> = ({ item }) => {
     return (
         <div className='card'>
             <div className='card-inner'>

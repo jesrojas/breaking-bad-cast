@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const SearchBox = ({ setQuery }) => {
-    const [text, setText] = useState('')
+interface ISearchBoxProps {
+    searchEvent(event: React.SyntheticEvent<HTMLInputElement>) : void
+}
 
-    const onChange = (e) => {
-        setText(e.target.value)
-        setQuery(text)
-    }
+const SearchBox = ({ searchEvent } : ISearchBoxProps) => {
+
     return (
         <section className='search'>
             <form>
@@ -14,8 +13,7 @@ const SearchBox = ({ setQuery }) => {
                 type='text' 
                 className='form-control' 
                 placeholder="Search Characters"
-                value={text}
-                onChange={onChange}/>
+                onChange={searchEvent}/>
             </form>
             
         </section>
