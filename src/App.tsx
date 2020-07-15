@@ -16,12 +16,12 @@ export interface Characters {
   status: string
 }
 
-const  App = () => {
-  const [items, setItems] = useState([])
-  const [isLoading, setLoading] = useState(true)
-  const [query, setQuery] = useState('')
+const  App = () : JSX.Element => {
+  const [items, setItems] = useState<Characters[]>([])
+  const [isLoading, setLoading] = useState<boolean>(true)
+  const [query, setQuery] = useState<string>('')
 
-  useEffect(() => {
+  useEffect(() : void => {
     const fetchItems = async () => {
       const result = await axios(`${query 
         ? 
@@ -35,7 +35,7 @@ const  App = () => {
     fetchItems()
   }, [query])
 
-  const onSearchEvent = (e : any) => {
+  const onSearchEvent = (e : React.SyntheticEvent<HTMLInputElement>) : void => {
     setQuery(e.currentTarget.value)
   }
 

@@ -5,7 +5,7 @@ interface StatelessComponentProps {
     item: Characters
 }
 
-const CharacterItem : React.SFC<StatelessComponentProps> = ({ item }) => {
+const CharacterItem : React.FC<StatelessComponentProps> = ({ item }) => {
     return (
         <div className='card'>
             <div className='card-inner'>
